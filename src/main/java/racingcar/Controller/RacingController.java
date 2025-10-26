@@ -1,5 +1,6 @@
 package racingcar.Controller;
 
+import racingcar.ErrorMessage.ErrorMessage;
 import racingcar.Model.CarManager;
 import racingcar.Model.Race;
 import racingcar.View.InputView;
@@ -32,7 +33,7 @@ public class RacingController {
     public void inputProcess(){
         this.totalCarNames = inputView.askCarName();
         if (totalCarNames.isEmpty()){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.EMPTY_CAR_NAME);
         }
 
         this.turn = inputView.askPlayTurn();
