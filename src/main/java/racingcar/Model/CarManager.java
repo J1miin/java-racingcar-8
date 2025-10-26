@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
+import racingcar.ErrorMessage.ErrorMessage;
 
 public class CarManager {
     private final List<Car> cars;
@@ -40,13 +41,16 @@ public class CarManager {
         return carName == null;
     }
 
-    private void parseCarNameByComma(String carName) {
-        StringTokenizer tokenizer = new StringTokenizer(carName, ",");
-        while (tokenizer.hasMoreTokens()) {
-            String tmpName = tokenizer.nextToken();
-
+    public void parseCarNameByComma(String carName) {
+        String[] tokens = carName.split(",");
+        for (String tmpName : tokens) {
+            tmpName = tmpName.trim();
             if (tmpName.length() > 5) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(ErrorMessage.NAME_LENGTH_OVER);
+            }
+
+            if (tmpName.isEmpty()) {
+                throw new IllegalArgumentException(ErrorMessage.EMPTY_CAR_NAME);
             }
 
             Car car = new Car(tmpName);
