@@ -30,6 +30,24 @@ public class CarManager {
         return totalCar;
     }
 
+    public void parseCarNameByComma(String carName) {
+        String[] split = carName.split(",",-1);
+        for(String name : split){
+            String tmpName = name.trim();
+
+            if (tmpName.isEmpty()){
+                throw new IllegalArgumentException(ErrorMessage.EMPTY_CAR_NAME);
+            }
+
+            if (tmpName.length() > 5) {
+                throw new IllegalArgumentException(ErrorMessage.NAME_LENGTH_OVER);
+            }
+
+            Car car = new Car(tmpName);
+            this.cars.add(car);
+        }
+    }
+    
     private void createEachCarInstance(String carName){
         if (isNameEmpty(carName)){
             throw new IllegalArgumentException();
@@ -39,25 +57,6 @@ public class CarManager {
 
     private boolean isNameEmpty(String carName){
         return carName == null;
-    }
-
-    public void parseCarNameByComma(String carName) {
-
-        StringTokenizer tokenizer = new StringTokenizer(carName, ",");
-        while (tokenizer.hasMoreTokens()){
-            String tmpName = tokenizer.nextToken().trim();
-
-            if (tmpName.length() > 5) {
-                throw new IllegalArgumentException(ErrorMessage.NAME_LENGTH_OVER);
-            }
-
-            if (tmpName.isEmpty()) {
-                throw new IllegalArgumentException(ErrorMessage.EMPTY_CAR_NAME);
-            }
-
-            Car car = new Car(tmpName);
-            this.cars.add(car);
-        }
     }
 
     private void checkDuplicatedName(){
