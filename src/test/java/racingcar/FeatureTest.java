@@ -54,10 +54,11 @@ public class FeatureTest {
                 .hasMessage(ErrorMessage.TRY_NUMBER_NEGATIVE);
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings ={"pobi,kate,  ,jay", "pobi,,kate"})
     @DisplayName("자동차 이름 입력값에 공백이 있는 경우")
-    void car_name_not_exist() {
-        String input = "pobi, ,kate";
+    void car_name_not_exist(String input) {
+        //String input = "pobi,,kate, ,jay";
 
         assertThatThrownBy(() -> carManager.parseCarNameByComma(input))
                 .isInstanceOf(IllegalArgumentException.class)
