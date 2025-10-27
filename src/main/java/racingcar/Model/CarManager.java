@@ -67,7 +67,7 @@ public class CarManager {
             duplicatedNames.add(iterator.next().getName());
         }
         if (duplicatedNames.size() != cars.size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATED_CAR_NAME);
         }
     }
 
