@@ -15,7 +15,7 @@ public class InputView {
         return carName;
     }
 
-    public int askPlayTurn() throws NumberFormatException {
+    public int askPlayTurn() {
         System.out.println("시도할 횟수는 몇 회인가요?");
         String input = Console.readLine();
         int playTurn;
