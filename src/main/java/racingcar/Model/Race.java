@@ -1,9 +1,8 @@
 package racingcar.Model;
 
-import static java.util.Collections.sort;
-
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -33,8 +32,8 @@ public class Race {
         int maxDistance = 0;
         String winner = "";
 
-        sort(carList);
-        maxDistance = carList.getFirst().getTotalMovingDistance();
+        Collections.sort(carList);
+        maxDistance = carList.get(0).getTotalMovingDistance();
 
         for (Car car : carList) {
             if (car.getTotalMovingDistance() == maxDistance) {
