@@ -42,9 +42,11 @@ public class CarManager {
     }
 
     public void parseCarNameByComma(String carName) {
-        String[] tokens = carName.split(",");
-        for (String tmpName : tokens) {
-            tmpName = tmpName.trim();
+
+        StringTokenizer tokenizer = new StringTokenizer(carName, ",");
+        while (tokenizer.hasMoreTokens()){
+            String tmpName = tokenizer.nextToken().trim();
+
             if (tmpName.length() > 5) {
                 throw new IllegalArgumentException(ErrorMessage.NAME_LENGTH_OVER);
             }
