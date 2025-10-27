@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.StringTokenizer;
 import racingcar.ErrorMessage.ErrorMessage;
 
 public class CarManager {
@@ -47,7 +46,7 @@ public class CarManager {
             this.cars.add(car);
         }
     }
-    
+
     private void createEachCarInstance(String carName){
         if (isNameEmpty(carName)){
             throw new IllegalArgumentException();
