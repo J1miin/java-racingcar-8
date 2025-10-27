@@ -31,10 +31,10 @@ public class CarManager {
 
     public void parseCarNameByComma(String carName) {
         String[] split = carName.split(",",-1);
-        for(String name : split){
+        for (String name : split){
             String tmpName = name.trim();
 
-            if (tmpName.isEmpty()){
+            if (tmpName.isEmpty()) {
                 throw new IllegalArgumentException(ErrorMessage.EMPTY_CAR_NAME);
             }
 
