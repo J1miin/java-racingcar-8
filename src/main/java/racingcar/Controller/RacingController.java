@@ -1,6 +1,5 @@
 package racingcar.Controller;
 
-import racingcar.ErrorMessage.ErrorMessage;
 import racingcar.Model.CarManager;
 import racingcar.Model.Race;
 import racingcar.View.InputView;
